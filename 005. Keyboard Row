@@ -1,0 +1,31 @@
+'''
+Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
+
+Example 1:
+Input: ["Hello", "Alaska", "Dad", "Peace"]
+Output: ["Alaska", "Dad"]
+
+Note:
+You may use one character in the keyboard more than once.
+You may assume the input string will only contain letters of alphabet.
+'''
+
+words = ["Hello", "Alaska", "Dad", "Peace"]
+
+def findWords(words):
+    row1 = set('qwertyuiop')
+    row2 = set('asdfghjkl')
+    row3 = set('zxcvbnm')
+    ans = []
+    
+    for word in words:
+        set_word = set(word.lower())
+        if row1 & set_word == set_word:
+            ans.append(word)
+        if row2 & set_word == set_word:
+            ans.append(word)
+        if row3 & set_word == set_word:
+            ans.append(word)
+    return ans
+    
+    findWords(words)
